@@ -1,5 +1,18 @@
-import java.util.Scanner;
 
+/**
+ 
+ *
+ * @version 1.0.0 2022-04-14
+ * 
+ * 
+ *
+ * @author Luis Alfredo Romero Cuello - exadom21@gmail.com
+ *
+ * @since 1.0.0 2022-04-14
+ *
+ */
+
+import java.util.Scanner;
 import adminOptions.OptionPlayList;
 import adminPlayList.CreatePlayList;
 import adminPlayList.OrderBy;
@@ -8,27 +21,20 @@ import adminPlayList.Search;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        CreatePlayList createplaylist = new CreatePlayList();
-
-        OptionPlayList optionplaylist;
-
-        OrderBy orderby;
-
-        Search search;
-
+        int num = 0; /* esta variable representa la opción que elija el usuario */
+        String decision; /* esta variable se utiliza si continua o no ejecutando el programa */
+        int playListMax = 0; /* se utilizara para controlar la cantidad de lista de reproduccion creadas */
         Scanner read = new Scanner(System.in);
-
-        int num = 0;
-
-        String decision;
-
-        int playListMax = 0;
+        CreatePlayList createplaylist = new CreatePlayList();
+        OptionPlayList optionplaylist;
+        OrderBy orderby;
+        Search search;
 
         do {
 
             decision = "s";
 
-            while (num == 0 || num < 0) {
+            while ((num == 0) || (num < 0)) {
 
                 System.out.println("Bienvenid@");
                 System.out.println("Que desea hacer:  ");
@@ -71,7 +77,7 @@ public class App {
                 case 3:
                     num = 0;
                     String gender = "";
-                    while (num == 0 || num < 0) {
+                    while ((num == 0) || (num < 0)) {
 
                         System.out.println("Opción 1: Salsa");
                         System.out.println("Opción 2: Reggeaton");
@@ -99,7 +105,7 @@ public class App {
                     break;
                 case 4:
                     num = 0;
-                    while (num == 0 || num < 0) {
+                    while ((num == 0) || (num < 0)) {
 
                         System.out.println("Por favor Elija el año de la canción a buscar");
 

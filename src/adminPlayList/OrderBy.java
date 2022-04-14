@@ -1,27 +1,70 @@
+/**
+ * clase  permite ordenar las canciones segun tiempo de duración
+ * ó fecha de creación
+ *
+ * ej.:como usar
+ * EstaClase clase = new EstaClase();
+ *
+ * @version 1.0.0 2022-04-14
+ * 
+ * 
+ *
+ * @author Luis Alfredo Romero Cuello - exadom21@gmail.com
+ *
+ * @since 1.0.0 2022-04-14
+ *
+ */
+
 package adminPlayList;
-
 import adminSongs.SongLibrary;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 
 public class OrderBy extends SongLibrary {
 
-    public void orderByDuration() {
+    /**
+     * este metodo tomar todos los tiempos de duracion de las 
+     * canciones y ordenarlas de menor a mayor
+     * @return vector de tiempos de duracion de las canciones ordenados
+     */
+    private double[] loadDurationSongs() {
 
         double songDuration[] = new double[list().size()];
         for (int i = 0; i < list().size(); i++) {
-
             songDuration[i] = list().get(i).getDuration();
-
         }
-
         Arrays.sort(songDuration);
 
-        for (int i = 0; i < songDuration.length; i++) {
-            for (int j = 0; j < songDuration.length; j++) {
+        return songDuration;
+    }
 
-                if (songDuration[i] == list().get(j).getDuration()) {
+    /**
+     * este metodo tomar todas fechas de las 
+     * canciones y ordenarlas de la mas vieja a la mas nueva
+     * @return vector de fechas de creación las canciones ordenados
+     */
+    private LocalDate[] loadDateSongs() {
+
+        LocalDate songDate[] = new LocalDate[list().size()];
+        for (int i = 0; i < list().size(); i++) {
+            songDate[i] = list().get(i).getDate();
+        }
+
+        Arrays.sort(songDate);
+
+        return songDate;
+    }
+
+    /**
+     * este metodo muestra las canciones ordenadas por tiempo
+     * de duración
+     */
+    public void orderByDuration() {
+
+        double loadDuration[] = loadDurationSongs();
+        for (int i = 0; i < loadDuration.length; i++) {
+            for (int j = 0; j < loadDuration.length; j++) {
+                if (loadDuration[i] == list().get(j).getDuration()) {
 
                     System.out.println("Duración: " + list().get(j).getDuration() + " Minutos");
                     System.out.println("Titulo: " + list().get(j).getTittle());
@@ -38,20 +81,15 @@ public class OrderBy extends SongLibrary {
 
     }
 
+    /**
+     * Este metodo muestra las canciones ordenas por fecha de cración
+     */
     private void orderByDate() {
-        LocalDate songDate[] = new LocalDate[list().size()];
-        for (int i = 0; i < list().size(); i++) {
+        LocalDate loaDate[]=loadDateSongs();
+        for (int i = 0; i < loaDate.length; i++) {
+            for (int j = 0; j < loaDate.length; j++) {
 
-            songDate[i] = list().get(i).getDate();
-
-        }
-
-        Arrays.sort(songDate);
-
-        for (int i = 0; i < songDate.length; i++) {
-            for (int j = 0; j < songDate.length; j++) {
-
-                if (songDate[i].equals(list().get(j).getDate())) {
+                if (loaDate[i].equals(list().get(j).getDate())) {
 
                     System.out.println("Fecha Lanzamiento: " + list().get(j).getDate());
                     System.out.println("Titulo: " + list().get(j).getTittle());
@@ -67,6 +105,10 @@ public class OrderBy extends SongLibrary {
         }
     }
 
+    /**
+     * este metodo permite acceder al metodo, que muestra las canciones ordenas 
+     * por fecha
+     */
     @Override
     public void show(String optional) {
         orderByDate();

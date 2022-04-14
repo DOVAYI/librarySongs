@@ -1,5 +1,37 @@
-package adminSongs;
+/**
+ * Esta clase permite crear canciones.
+ *
+ * Tiene sobrecarga de constructores para aplicar en diferentes
+ * contextos:
+ * ej.:
+ * 
+ * Opcion 1:esta forma no es recomendable, la utilizaremos para facilitar la creacion de canciones 
+ * EstaClase clase = new EstaClase(arg, arg1, ..., arg7);
+ * todos los atributos se inicializan en el constructor;
+ * los getters para tomar los valores
+ * 
+ * Opcion 2: 
+ * EstaClase clase = new EstaClase(arg, arg1, arg3);
+ * todos los atributos se inicializan en el constructor;
+ * los getters para tomar los valores
+ * 
+ * Opcion 3: 
+ * EstaClase clase = new EstaClase();
+ * todos los atributos se inicializan con los setters;
+ * los getters para tomar los valores
+ * ]
+ *
+ * @version 1.0.0 2022-04-14
+ * 
+ * 
+ *
+ * @author Luis Alfredo Romero Cuello - exadom21@gmail.com
+ *
+ * @since 1.0.0 2022-04-14
+ *
+ */
 
+package adminSongs;
 import java.time.LocalDate;
 
 public class Song {
@@ -8,13 +40,19 @@ public class Song {
     private String id = "";
     private LocalDate date = null;
     private double duration = 0;
-    private String gender = "";
+    private String gender = ""; 
     private String cover = "";
     private String description = "";
 
     public Song() {
     }
-
+    /*  
+        este comentario esta dirjido al instructor
+        este constructor NO cumple las buenas practicas,
+        en este caso inicializa 7 atributos,se utiliza por motivos
+        practicos, es utilizado en clase SongLibrary 
+        metodo: public ArrayList<Song> list()
+    */
     public Song(String tittle, String id, LocalDate date, double duration,
             String gender, String cover, String description) {
         this.tittle = tittle;
@@ -32,12 +70,36 @@ public class Song {
         this.duration = duration;
     }
 
-    public Song(String tittle, String id, LocalDate date) {
+    
+
+    /**
+     * setter para inicializar y/o modificar valores de atributos
+     */
+
+    public void setTittle(String tittle) {
         this.tittle = tittle;
+    }
+    public void setId(String id) {
         this.id = id;
+    }
+    public void setDate(LocalDate date) {
         this.date = date;
     }
-
+    public void setDuration(double duration) {
+        this.duration = duration;
+    }
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    /**
+     * Getters para capturar valores de atributos
+     */
     public String getTittle() {
         return tittle;
     }
@@ -69,73 +131,3 @@ public class Song {
 }
 
 
-/**
- * [Detalle el objetivo de la clase.
- *
- * incorpore indicaciones de uso de la clase para facilitar su compresión.
- * ej.:
- *
- * EstaClase clase = new EstaClase(arg, arg1, ..., argN);
- * clase.setUnaPropiedad(valor);
- * ValorDeRespuesta valor = clase.execute();
- * ]
- *
- * @version [Ingrese el número de versión con el siguiente formato: VS.CM.cm
- *          AAAA-mm-dd
- *          "VS" indica la versión actual del sistema,
- *          "CM" indica un refactoring de la clase,
- *          "cm" indica un cambio menor en alguna sección de la misma
- *
- *          ej: 4.02.003 2011-08-01, La clase corresponde a la versión 4 del
- *          sistema,
- *          la misma a sufrido 2 refactorings durante la versión
- *          se realizaron 3 cambios menores luego del segundo refactoring
- *          el último cambio fue realizado el 1 de agosto de 2011]
- *
- * @author [Ingrese nombre, apellido y correo electrónico del autor.
- *         ej: Fulano DeTal – fulano.detal@swissmedical.com.ar]
- *
- * @since [Ingrese desde que versión del sistema está presente la clase]
- *
- */
-
-/**
- * [Detalle el objetivo del método.
- *
- * incorpore indicaciones de uso del mismo para facilitar su compresión.
- * ej.:
- *
- * ...;
- * clase.unaLogicaDeNegocioDeterminada(valor1, valor2);
- * ValorDeRespuesta valor = clase.execute();
- * ]
- *
- * @param arg
- * @param arg2
- * @return
- * @throws Exception
- *
- * @author [Ingrese nombre, apellido y correo electrónico del autor.
- *         ej: Fulano DeTal – fulano.detal@swissmedical.com.ar]
- *
- * @since [Ingrese desde que versión del sistema está presente el método]
- *
- * @see [Indique si existe código que deba ser consultado como material de apoyo
- *      a este código
- *      Para consultar sobre el uso de este tag, visite la siguiente dirección
- *      <a href=
- *      "http://download.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@see">javadoc
- *      - The Java API Documentation Generator</a>]
- *
- * @deprecated [Indique si el método es obsoleto, a partir de cuando será
- *             discontinuado
- *             y provea un link al, o los, método que lo reemplazará.
- *             ej: {@link #remove(int)} and {@link #removeAll()}
- *             Para consultar sobre el uso del tag link, visite la siguiente
- *             dirección
- *             <a href=
- *             "http://download.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#{@link}">javadoc
- *             - The Java API Documentation Generator</a>
- *             ATENCION!: BORRE ESTE TAG SI NO APLICA!!!!!.]
- *
- */
