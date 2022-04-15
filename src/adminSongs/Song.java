@@ -65,9 +65,7 @@ public class Song {
     }
     
     public Song(String tittle, String id, double duration) {
-        this.tittle = tittle;
-        this.id = id;
-        this.duration = duration;
+        this(tittle,id,null,duration,"","","");
     }
 
     
